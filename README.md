@@ -1,6 +1,6 @@
 # Galileo
 
-A theme for [Maverick](https://github.com/AlanDecode/Maverick), aimed for personal blog.
+A theme for [Maverick](https://github.com/AlanDecode/Maverick), designed for personal blog.
 
 [![Actions Status](https://github.com/AlanDecode/Maverick-Theme-Galileo/workflows/Build/badge.svg)](https://github.com/AlanDecode/Maverick-Theme-Galileo/actions)
 
