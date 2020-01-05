@@ -8,7 +8,6 @@ from Maverick.Template import Template, Pager
 from Maverick.Content import ContentList, group_by_category, group_by_tagname
 from Maverick.Utils import logged_func, gen_hash, unify_joinpath, copytree
 from Maverick.Utils import safe_write, safe_read
-from Maverick.Markdown import g_hooks
 from .utils import tr, build_navs, build_links
 
 import os
@@ -30,8 +29,11 @@ class Galileo(Template):
         self._env.globals['build_navs'] = build_navs
         self._env.globals['build_links'] = build_links
 
-        # add image hook to Markdown Parser
-        g_hooks.add_hook('output_image', self.output_image)
+        try:
+            from Maverick.Markdown import g_hooks
+            g_hooks.add_hook('output_image', self.output_image)
+        except BaseException as e:
+            pass
 
         self.build_search_cache()
         self.gather_meta()
