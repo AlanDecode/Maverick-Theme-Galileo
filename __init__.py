@@ -8,6 +8,7 @@ from Maverick.Template import Template, Pager
 from Maverick.Content import ContentList, group_by_category, group_by_tagname
 from Maverick.Utils import logged_func, gen_hash, unify_joinpath, copytree
 from Maverick.Utils import safe_write, safe_read
+from Maverick.Markdown import g_hooks
 from .utils import tr, build_navs, build_links
 
 import os
@@ -28,6 +29,9 @@ class Galileo(Template):
         self._env.globals['len'] = len
         self._env.globals['build_navs'] = build_navs
         self._env.globals['build_links'] = build_links
+
+        # add image hook to Markdown Parser
+        g_hooks.add_hook('output_image', self.output_image)
 
         self.build_search_cache()
         self.gather_meta()
@@ -57,6 +61,28 @@ class Galileo(Template):
                 os.mkdir(dist_dir)
             copytree(source_dir, dist_dir)
         copy_assets('assets', 'assets')
+
+    def output_image(self, image):
+        figcaption = image['title'] or ''
+        if figcaption == '' and self._config.parse_alt_as_figcaption:
+            figcaption = image['alt'] or ''
+
+        src = image['src']
+        attr = 'data-width="%s" data-height="%s"' % (
+            image['width'], image['height'])
+
+        style = ''
+        if image['width'] != -1 and image['height'] != -1:
+            style = 'style="flex: %s"' % str(image['width'] * 50 / image['height'])
+
+        if image['width'] == -1 or image['height'] == -1:
+            attr += " size-undefined"
+
+        if figcaption != "":
+            figcaption = '<figcaption>%s</figcaption>' % figcaption
+
+        return '<figure class="pswp-item" %s %s><img src="%s" alt="%s" />%s</figure>' \
+            % (style, attr, src, image['alt'], figcaption)
 
     def gather_meta(self):
         self._tags = set()
