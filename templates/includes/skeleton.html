@@ -11,7 +11,7 @@
     <meta name="template" content="Galileo" />
     <link rel="alternate" type="application/rss+xml" title="{{ fp(config.site_name) }} &raquo; RSS 2.0" href="{{ fp(config.site_prefix) }}feed/index.xml" />
     <link rel="alternate" type="application/atom+xml" title="{{ fp(config.site_name) }} &raquo; ATOM 1.0" href="{{ fp(config.site_prefix) }}feed/atom/index.xml" />
-    <link rel="stylesheet" href="{{ Router.gen_static_file_prefix() }}assets/galileo-01513f180e.css">
+    <link rel="stylesheet" href="{{ Router.gen_static_file_prefix() }}assets/galileo-6bd3a4319a.css">
     <link rel="stylesheet" href="{{ Router.gen_static_file_prefix() }}assets/ExSearch/ExSearch-182e5a8868.css">
     <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
     <script>
@@ -32,11 +32,6 @@
         <div class="container">
             <header id="ga-header">
                 <div first>
-                    <aside id="ga-logo">
-                        <a href="{{ fp(config.site_prefix) }}" target="_self">
-                            <img src="{{ fp(config.site_logo) }}" alt="{{ fp(config.site_name) }}">
-                        </a>
-                    </aside>
                     <aside id="ga-brand">
                         <h1 class="brand"><a class="no-style" href="{{ fp(config.site_prefix) }}">{{ fp(config.site_name) }}</a></h1>
                         <p>{{ fp(config.description) }}</p>
@@ -45,9 +40,6 @@
                 <div second id="ga-nav">
                     <nav class="navs">
                         {{ build_navs(config.nav) }}
-                    </nav>
-                    <nav class="social-links">
-                        {{ build_links(config.social_links) }}
                     </nav>
                 </div>
             </header>
