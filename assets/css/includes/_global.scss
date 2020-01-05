@@ -5,7 +5,6 @@ Global elements
 #ga-header {
     margin: 4rem 0 5rem;
     position: relative;
-    text-align: center;
     &::before {
         content: "";
         width: 100%;
@@ -75,6 +74,7 @@ Global elements
                 padding: 0;
                 white-space: nowrap;
                 overflow-x: auto;
+                overflow-y: hidden;
                 li {
                     display: inline;
                 }
