@@ -3,8 +3,9 @@ Global elements
 */
 
 #ga-header {
-    margin: 4rem 0;
+    margin: 4rem 0 5rem;
     position: relative;
+    text-align: center;
     &::before {
         content: "";
         width: 100%;
@@ -12,7 +13,7 @@ Global elements
         height: 2px;
         background: rgba(0,0,0,.05);
         left: 0;
-        bottom: -2rem;
+        bottom: -2.5rem;
     }
     @media screen and (max-width: $mainWidth) {
         &::before {
@@ -21,24 +22,21 @@ Global elements
         }
     }
     div[first] {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        aside#ga-logo {
-            a {
-                position: relative;
-                display: block;
-                width: 60px;
-                height: 60px;
-                margin-right: 1rem;
-                img {
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
-        }
+        // aside#ga-logo {
+        //     a {
+        //         position: relative;
+        //         display: block;
+        //         width: 60px;
+        //         height: 60px;
+        //         margin-right: 1rem;
+        //         img {
+        //             position: absolute;
+        //             width: 100%;
+        //             height: 100%;
+        //             object-fit: cover;
+        //         }
+        //     }
+        // }
         aside#ga-brand {
             flex: 1;
             h1 {
@@ -54,6 +52,7 @@ Global elements
             p {
                 margin: 0;
                 line-height: 1.35;
+                color: $faded-black-light;
             }
             
         }
@@ -61,10 +60,10 @@ Global elements
     div[second] {
         nav {
             font-size: 1.1rem;
-            &.social-links {
-                font-size: 0.9rem;
-                display: none;
-            }
+            // &.social-links {
+            //     font-size: 0.9rem;
+            //     display: none;
+            // }
             .separator {
                 display: inline-block;
                 margin: 0 8px;
@@ -74,6 +73,8 @@ Global elements
                 margin-top: 1.5rem;
                 list-style: none;
                 padding: 0;
+                white-space: nowrap;
+                overflow-x: auto;
                 li {
                     display: inline;
                 }
@@ -87,75 +88,75 @@ Global elements
     }
 }
 
-@media screen and (min-width: $breakMiddle) {
-    #ga-header {
-        &::before {
-            display: none;
-        }
-        position: sticky;
-        top: 4rem;
-        height: max-content;
-        max-width: 137px;
-        width: 137px;
-        margin-left: 45px;
-        padding-left: 35px;
-        border-left: 2px dotted rgba(0,0,0,.05);
-        div[first] {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        div[first] aside#ga-logo {
-            display: none;
-        }
-        div[first] aside#ga-brand {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            justify-content: flex-start;
-        }
-        div[first] aside#ga-brand h1 {
-            margin-bottom: 0;
-            writing-mode: vertical-lr;
-            font-size: 2.5rem;
-            line-height: 1;
-        }
-        div[first] aside#ga-brand p {
-            writing-mode: vertical-lr;
-            white-space: nowrap;
-            height: max-content;
-            padding-left: 10px;
-            margin-left: 10px;
-            border-left: 1px solid rgba(0,0,0,.05);
-            font-size: 1.2rem;
-            letter-spacing: 0.1em;
-        }
-        div[second] nav {
-            .separator {
-                display: none;
-            }
-            &.social-links {
-                border-top: 2px solid rgba(0,0,0,0.1);
-                display: block;
-            }
-            ul {
-                display: block;
-            }
-            ul li {
-                display: block;
-                margin-bottom: 1rem;
-            }
-            &.navs {
-                ul {
-                    padding-left: 1.5rem;
-                    list-style: square;
-                    li {
-                        display: list-item;
-                    }
-                }
-            }
-        }
-    }
-}
+// @media screen and (min-width: $breakMiddle) {
+//     #ga-header {
+//         &::before {
+//             display: none;
+//         }
+//         position: sticky;
+//         top: 4rem;
+//         height: max-content;
+//         max-width: 137px;
+//         width: 137px;
+//         margin-left: 45px;
+//         padding-left: 35px;
+//         border-left: 2px dotted rgba(0,0,0,.05);
+//         div[first] {
+//             flex-direction: column;
+//             align-items: flex-start;
+//         }
+//         div[first] aside#ga-logo {
+//             display: none;
+//         }
+//         div[first] aside#ga-brand {
+//             display: flex;
+//             flex-direction: row;
+//             width: 100%;
+//             justify-content: flex-start;
+//         }
+//         div[first] aside#ga-brand h1 {
+//             margin-bottom: 0;
+//             writing-mode: vertical-lr;
+//             font-size: 2.5rem;
+//             line-height: 1;
+//         }
+//         div[first] aside#ga-brand p {
+//             writing-mode: vertical-lr;
+//             white-space: nowrap;
+//             height: max-content;
+//             padding-left: 10px;
+//             margin-left: 10px;
+//             border-left: 1px solid rgba(0,0,0,.05);
+//             font-size: 1.2rem;
+//             letter-spacing: 0.1em;
+//         }
+//         div[second] nav {
+//             .separator {
+//                 display: none;
+//             }
+//             &.social-links {
+//                 border-top: 2px solid rgba(0,0,0,0.1);
+//                 display: block;
+//             }
+//             ul {
+//                 display: block;
+//             }
+//             ul li {
+//                 display: block;
+//                 margin-bottom: 1rem;
+//             }
+//             &.navs {
+//                 ul {
+//                     padding-left: 1.5rem;
+//                     list-style: square;
+//                     li {
+//                         display: list-item;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
 
 #ga-footer {
     font-size: 0.95rem;

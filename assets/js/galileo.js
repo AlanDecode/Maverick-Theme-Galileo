@@ -1,6 +1,4 @@
-;;;
-
-console.log(" %c Maverick & Galileo By AlanDecode %c https://www.imalan.cn/ ", "color: #fadfa3; background: #23b7e5; padding:5px;", "padding:5px;");
+;console.log(" %c Maverick & Galileo By AlanDecode %c https://www.imalan.cn/ ", "color: #fadfa3; background: #23b7e5; padding:5px;", "padding:5px;");
 
 document.addEventListener('DOMContentLoaded', function(){
     (function () {
