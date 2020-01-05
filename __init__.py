@@ -30,7 +30,6 @@ class Galileo(Template):
         self._env.globals['build_links'] = build_links
 
         try:
-            from Maverick import Maverick_Version
             from Maverick.Markdown import g_hooks
             g_hooks.add_hook('output_image', self.output_image)
         except BaseException as e:
