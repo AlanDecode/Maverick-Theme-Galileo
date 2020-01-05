@@ -3,8 +3,9 @@ Global elements
 */
 
 #ga-header {
-    margin: 4rem 0 5rem;
+    margin: 3rem 0 6rem;
     position: relative;
+    text-align: center;
     &::before {
         content: "";
         width: 100%;
@@ -12,7 +13,7 @@ Global elements
         height: 2px;
         background: rgba(0,0,0,.05);
         left: 0;
-        bottom: -2.5rem;
+        bottom: -3rem;
     }
     @media screen and (max-width: $mainWidth) {
         &::before {
