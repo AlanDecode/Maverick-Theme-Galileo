@@ -9,6 +9,9 @@
   .yue {
     line-height: $contentLineHeight;
     letter-spacing: 0.01em;
+    .ga-content_body {
+      font-family: 'Droid Serif', $ga-font-sans;
+    }
   }
 
   .yue ::-moz-selection {
@@ -18,14 +21,14 @@
   .yue ::selection {
     background-color: $yellow;
   }
-  // .yue h1,
-  // .yue h2,
-  // .yue h3,
-  // .yue h4,
-  // .yue h5,
-  // .yue h6 {
-  //   color: #222223;
-  // }
+  .yue h1,
+  .yue h2,
+  .yue h3,
+  .yue h4,
+  .yue h5,
+  .yue h6 {
+    font-family: $ga-font-sans;
+  }
   .yue h1 {
     font-size: 1.7em;
     margin: 0.67em 0;
