@@ -53,6 +53,11 @@
             font-size: 0.95rem;
             margin-bottom: .67rem;
             margin-left: 0;
+            padding-left: 0;
+            font-weight: 300;
+            &::before {
+                display: none;
+            }
         }
         > ul {
             list-style: none;

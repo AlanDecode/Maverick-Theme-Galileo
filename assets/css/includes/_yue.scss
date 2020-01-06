@@ -159,9 +159,17 @@
   }
   .yue blockquote {
     margin: 0 0 1.64em 0;
-    border-left: 3px solid #dadada;
-    padding-left: 12px;
+    padding-left: 2.2em;
     color: #666664;
+    position: relative;
+    &::before {
+      position: absolute;
+      top: -4px;
+      left: 0;
+      content: "\201c";
+      font: 700 58px/1 "Droid Serif",serif;
+      color: rgba(0,0,0,.1);
+    }
   }
   .yue ul,
   .yue ol {
@@ -210,10 +218,8 @@
   }
   .yue pre {
     margin: 1.64em 0;
-    padding: 7px;
+    padding: 10px;
     border: none;
-    border-left: 3px solid #dadada;
-    padding-left: 10px;
     overflow: auto;
     line-height: 1.5;
     font-size: 0.9em;
@@ -262,16 +268,6 @@
     padding: 0;
     border: none;
     background: none;
-  }
-  @media (min-width: 1100px) {
-    .yue blockquote {
-      margin-left: -24px;
-      padding-left: 20px;
-      border-width: 4px;
-    }
-    .yue blockquote blockquote {
-      margin-left: 0;
-    }
   }
   
   .yue .footnotes li a::before {
