@@ -28,98 +28,6 @@ document.addEventListener('DOMContentLoaded', function(){
         }, 1000);
     })();
 
-    (function (selector) {
-        var openByIndex = function (index) {
-            var options = {
-                galleryUID: 1,
-                index: index,
-                getThumbBoundsFn: function (index) {
-                    var thumbnail = window.pswpEls[index].getElementsByTagName('img')[0],
-                        pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-                        rect = thumbnail.getBoundingClientRect();
-                    return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
-                }
-            };
-    
-            var pswpElement = document.querySelectorAll('.pswp')[0];
-            gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, window.pswpItems, options);
-            gallery.init();
-        };
-    
-        els = document.querySelectorAll(selector);
-        window.pswpEls = [];  // figure
-        window.pswpItems = [];
-    
-        // bind click
-        for (var index = 0; index < els.length; index++) {
-            var figureEl = els[index];
-            var imgEl = figureEl.getElementsByTagName('img')[0];
-            var figcaptionEl = figureEl.getElementsByTagName('figcaption')[0];
-    
-            if (figureEl.hasAttribute('size-undefined')) continue;
-    
-            if (typeof figureEl.dataset.width === 'undefined'
-                || typeof figureEl.dataset.height === 'undefined') continue;
-    
-            var item = {
-                src: imgEl.getAttribute('src'),
-                w: parseInt(figureEl.dataset.width, 10),
-                h: parseInt(figureEl.dataset.height, 10)
-            }
-    
-            if (typeof figcaptionEl !== 'undefined') {
-                item.title = figcaptionEl.innerHTML;
-            }
-    
-            window.pswpEls.push(figureEl);
-            window.pswpItems.push(item);
-    
-            figureEl.addEventListener('click', function () {
-                var pid = -1
-                for (var index = 0; index < window.pswpEls.length; index++) {
-                    if (window.pswpEls[index] === this) {
-                        pid = index;
-                        break;
-                    }
-                }
-                if (pid < 0) return;
-                openByIndex(pid);
-            })
-        }
-    
-        // directly open url
-        param = (function () {
-            var hash = window.location.hash.substring(1),
-                params = {};
-
-            if (hash.length < 5) {
-                return params;
-            }
-
-            var vars = hash.split('&');
-            for (var i = 0; i < vars.length; i++) {
-                if (!vars[i]) {
-                    continue;
-                }
-                var pair = vars[i].split('=');
-                if (pair.length < 2) {
-                    continue;
-                }
-                params[pair[0]] = pair[1];
-            }
-
-            if (params.gid) {
-                params.gid = parseInt(params.gid, 10);
-            }
-
-            return params;
-        })();
-
-        if (param.pid) {
-            openByIndex(param.pid)
-        }
-    })('.pswp-item');
-
     (function () {
         var figureEls = document.querySelectorAll('figure[size-undefined]');
 
@@ -225,8 +133,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 link: 'https://www.imalan.cn',
             });
             options.contextmenu = contextmenu;
-    
-            console.log(options);
     
             new DPlayer(options);
         }

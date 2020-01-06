@@ -70,21 +70,19 @@ class Galileo(Template):
             figcaption = image['alt'] or ''
 
         src = image['src']
-        attr = 'data-width="%s" data-height="%s"' % (
-            image['width'], image['height'])
 
         style = ''
+        attr = ''
         if image['width'] != -1 and image['height'] != -1:
             style = 'style="flex: %s"' % str(image['width'] * 50 / image['height'])
-
-        if image['width'] == -1 or image['height'] == -1:
-            attr += " size-undefined"
+        else:
+            attr = 'size-undefined'
 
         if figcaption != "":
             figcaption = '<figcaption>%s</figcaption>' % figcaption
 
-        return '<figure class="pswp-item" %s %s><img src="%s" alt="%s" />%s</figure>' \
-            % (style, attr, src, image['alt'], figcaption)
+        return '<figure %s %s><a target="_blank" href="%s"><img src="%s" alt="%s" /></a>%s</figure>' \
+            % (style, attr, src, src, image['alt'], figcaption)
 
     def gather_meta(self):
         self._tags = set()

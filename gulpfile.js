@@ -34,7 +34,7 @@ gulp.task('css', function () {
 
 //JS
 gulp.task('js', function () {
-    return gulp.src(['./assets/js/PhotoSwipe.js', './assets/js/dplayer.js', './assets/js/galileo.js'])
+    return gulp.src(['./assets/js/dplayer.js', './assets/js/galileo.js'])
         .pipe(concat('galileo.js'))
         .pipe(uglify())
         .pipe(rev())
