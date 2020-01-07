@@ -1,5 +1,8 @@
 temp/
 Galileo/
+config.py
+dev.bat
+.vscode/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,6 +1,6 @@
-;console.log(" %c Maverick & Galileo By AlanDecode %c https://www.imalan.cn/ ", "color: #fadfa3; background: #23b7e5; padding:5px;", "padding:5px;");
+; console.log(" %c Maverick & Galileo By AlanDecode %c https://www.imalan.cn/ ", "color: #fadfa3; background: #23b7e5; padding:5px;", "padding:5px;");
 
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
     (function () {
         var domain = document.domain;
         var els = document.getElementsByTagName('a');
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
             }
         }
-    
+
         window.setInterval(function () {
             var times = new Date().getTime() - Date.parse(site_build_date);
             times = Math.floor(times / 1000); // convert total milliseconds into total seconds
@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
         for (var index = 0; index < figureEls.length; index++) {
             var figure = figureEls[index];
-            
+
             var img = new Image();
             img.src = figure.getElementsByTagName('img')[0].src;
             img.parentFigure = figure;
-            
+
             img.onload = function () {
                 var parent = this.parentFigure;
                 parent.removeAttribute('size-undefined');
@@ -47,43 +47,43 @@ document.addEventListener('DOMContentLoaded', function(){
             };
         }
     })();
-    
+
     (function () {
         var tuneBilibili = function () {
             var iframes = document.getElementsByTagName('iframe');
-    
+
             for (var index = 0; index < iframes.length; index++) {
                 var iframe = iframes[index];
                 var src = iframe.src;
-    
+
                 if (typeof src === 'string' && src.indexOf('player.bilibili.com') > -1) {
                     iframe.classList.add('bili-player');
-    
+
                     if (src.indexOf('&high_quality') < 0) {
                         src += '&high_quality=1'; // enable high quality
                         iframe.setAttribute('src', src);
                     }
-    
+
                     // by default 9:16
                     var height = iframe.clientWidth * 0.5625;
-    
+
                     // is aspect ratio is explicitly specified
                     if (iframe.getAttribute('data-ratio') != undefined)
                         height = parseFloat(iframe.getAttribute('data-ratio')) * iframe.clientWidth;
-    
+
                     // show control panel with screen wider than 540
                     if (window.innerWidth >= 540)
                         height += 120;
-    
+
                     iframe.style.height = height + "px";
                 }
             }
         };
-    
+
         tuneBilibili();
         window.addEventListener('resize', tuneBilibili);
     })();
-    
+
     // init all DPlayer
     (function () {
         var dplayers = document.getElementsByClassName('dplayer');
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function(){
             var el = dplayers[index];
             if (!el.hasAttribute('data-url'))
                 continue;
-    
+
             var options = {
                 container: el,
                 autoplay: el.dataset.autoplay || false,
@@ -107,10 +107,10 @@ document.addEventListener('DOMContentLoaded', function(){
                     url: el.dataset.url,
                     pic: el.dataset.pic || '',
                     thumbnails: el.dataset.thumbnails || '',
-                    type: el.dataset.type ||'auto',
+                    type: el.dataset.type || 'auto',
                 }
             }
-    
+
             if (typeof el.dataset.subtitle === 'string') {
                 options.subtitle = JSON.parse(el.dataset.subtitle)
             }
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function(){
             if (typeof el.dataset.highlight === 'string') {
                 options.highlight = JSON.parse(el.dataset.highlight)
             }
-    
+
             var contextmenu = [];
             if (typeof el.dataset.contextmenu === 'string') {
                 contextmenu = JSON.parse(el.dataset.contextmenu)
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 link: 'https://www.imalan.cn',
             });
             options.contextmenu = contextmenu;
-    
+
             new DPlayer(options);
         }
     })();
