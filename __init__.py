@@ -32,7 +32,7 @@ class Galileo(Template):
         try:
             from Maverick.Markdown import g_hooks
             g_hooks.add_hook('output_image', self.output_image)
-        except BaseException as e:
+        except BaseException:
             pass
 
         self.build_search_cache()
@@ -81,8 +81,8 @@ class Galileo(Template):
         if figcaption != "":
             figcaption = '<figcaption>%s</figcaption>' % figcaption
 
-        return '<figure %s %s><img src="%s" alt="%s" />%s</figure>' \
-            % (style, attr, src, image['alt'], figcaption)
+        return '<figure %s %s><img class="lazyload" width="%s" height="%s" data-src="%s" alt="%s" />%s</figure>' \
+            % (style, attr, image['width'], image['height'], src, image['alt'], figcaption)
 
     def gather_meta(self):
         self._tags = set()

@@ -13,6 +13,7 @@
     <link rel="alternate" type="application/atom+xml" title="{{ fp(config.site_name) }} &raquo; ATOM 1.0" href="{{ fp(config.site_prefix) }}feed/atom/index.xml" />
     <link rel="stylesheet" href="{{ Router.gen_static_file_prefix() }}assets/galileo-e255dd166a.css">
     <link rel="stylesheet" href="{{ Router.gen_static_file_prefix() }}assets/ExSearch/ExSearch-182e5a8868.css">
+    <link rel="stylesheet" href="{{ Router.gen_static_file_prefix() }}assets/katex.min.css">
     <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700&display=swap">
     <script>
@@ -74,11 +75,9 @@
         </div>
     </div>
 
-    <script src="{{ Router.gen_static_file_prefix() }}assets/ExSearch/jquery.min.js"></script>
-    <script src="{{ Router.gen_static_file_prefix() }}assets/ExSearch/ExSearch-493cb9cd89.js"></script>
-    
+    <script defer src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js" onload="lazyload();"></script>
+
     <!--katex-->
-    <link rel="stylesheet" href="{{ Router.gen_static_file_prefix() }}assets/katex.min.css">
     <script defer src="{{ Router.gen_static_file_prefix() }}assets/katex.min.js"></script>
     <script>
     mathOpts = {
@@ -91,6 +90,9 @@
     };
     </script>
     <script defer src="{{ Router.gen_static_file_prefix() }}assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+
+    <script src="{{ Router.gen_static_file_prefix() }}assets/ExSearch/jquery.min.js"></script>
+    <script src="{{ Router.gen_static_file_prefix() }}assets/ExSearch/ExSearch-493cb9cd89.js"></script>
 
     {{ fp(config.body_addon) }}
     </body>
