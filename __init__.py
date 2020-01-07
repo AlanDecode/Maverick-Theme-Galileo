@@ -65,9 +65,7 @@ class Galileo(Template):
         copy_assets('assets', 'assets')
 
     def output_image(self, image):
-        figcaption = image['title'] or ''
-        if figcaption == '' and self._config.parse_alt_as_figcaption:
-            figcaption = image['alt'] or ''
+        figcaption = image['title'] or image['alt'] or ''
 
         src = image['src']
 
