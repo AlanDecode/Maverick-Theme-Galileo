@@ -8,7 +8,7 @@ from Maverick.Template import Template, Pager
 from Maverick.Content import ContentList, group_by_category, group_by_tagname
 from Maverick.Utils import logged_func, gen_hash, unify_joinpath, copytree
 from Maverick.Utils import safe_write, safe_read
-from .utils import tr, build_navs, build_links
+from .utils import tr, build_navs, build_links, filterPrefix
 
 import os
 import re
@@ -28,6 +28,7 @@ class Galileo(Template):
         self._env.globals['len'] = len
         self._env.globals['build_navs'] = build_navs
         self._env.globals['build_links'] = build_links
+        self._env.globals['get_path'] = filterPrefix
 
         try:
             from Maverick.Markdown import g_hooks
