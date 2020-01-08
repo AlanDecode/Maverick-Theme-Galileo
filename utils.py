@@ -38,3 +38,9 @@ def build_navs(navs):
     list.append(
         '<li><a href="#" target="_self" class="search-form-input ga-highlight">%s</a></li>' % tr('Search'))
     return '<ul>%s</ul>' % ('<span class="separator">·</span>'.join(list))
+
+
+def filterPrefix(url: str):
+    """replace prefix with `/`, to fix Valine view counting
+    """
+    return url.replace(g_conf.site_prefix, "/")

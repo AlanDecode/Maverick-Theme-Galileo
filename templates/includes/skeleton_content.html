@@ -38,7 +38,7 @@
                 {% endif %}
                 {% if config.valine['enable'] and config.valine.get('visitor', False) and content.get_meta('comment') %}
                 <span class="leancloud_visitors" 
-                    id="{{ Router.gen_permalink_by_content(content) }}" 
+                    id="{{ get_path(Router.gen_permalink_by_content(content)) }}" 
                     data-flag-title="{{ content.meta['title'] }}"> · <i class="leancloud-visitors-count"></i> Views</span>
                 {% endif %}
             </span>
