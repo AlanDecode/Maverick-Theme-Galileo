@@ -60,14 +60,13 @@
   }
   .yue .notice {
     padding: 0.5rem;
-    padding-left: 0.75rem;
-    border-left: solid 4px #fbbc05;
-    background: rgba(0, 0, 25, 0.025);
+    background: rgba($color: $yellow, $alpha: 0.05);
     margin-bottom: 1.24em;
   }
   .yue a {
     word-wrap: break-word;
     color: $black;
+    border-bottom: 2px solid rgba($color: $yellow, $alpha: 0.45);
     @include a-highlight()
   }
 

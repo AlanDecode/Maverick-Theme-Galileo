@@ -70,6 +70,7 @@
                 }
                 a {
                     color: $black;
+                    border-bottom: 2px solid rgba($color: $yellow, $alpha: 0.45);
                 }
                 footer {
                     display: flex;
@@ -98,7 +99,7 @@
     &#ga-archive_list {
         padding-top: 3rem;
         > ul > li {
-            margin-bottom: 1.75rem;
+            margin-bottom: 1rem;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
