@@ -46,7 +46,7 @@
     <ul>
         {% for item in config.external_links %}
         <li>
-            <a class="ga-highlight" target="_blank" href="{{ fp(item['url']) }}">{{ fp(item['name']) }}</a>：{{ fp(item['brief']) }}
+            <a class="ga-highlight" target="{{ fp(item['target']) }}" href="{{ fp(item['url']) }}">{{ fp(item['name']) }}</a>：{{ fp(item['brief']) }}
         </li>
         {% endfor %}
     </ul>
