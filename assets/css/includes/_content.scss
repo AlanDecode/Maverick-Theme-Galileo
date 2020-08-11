@@ -175,6 +175,10 @@
             margin-top: 1.24rem;
         }
     }
+
+    div.photoset + *:not(.photoset) {
+        margin-top: 1.24rem;
+    }
 }
 
 #ga-content_pager {
