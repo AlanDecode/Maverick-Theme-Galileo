@@ -80,7 +80,7 @@ class Galileo(Template):
         if figcaption != "":
             figcaption = '<figcaption>%s</figcaption>' % figcaption
 
-        return '<figure %s %s><img width="%s" height="%s" src="%s" />%s</figure>' \
+        return '<figure %s %s><img loading="lazy" width="%s" height="%s" src="%s" />%s</figure>' \
             % (style, attr, image['width'], image['height'], src, figcaption)
 
     def gather_meta(self):
